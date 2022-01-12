@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Team</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.column {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.title {
+  color: rgb(10, 10, 10);
+}
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.button:hover {
+  background-color: rgb(14, 13, 13);
+}
+</style>
+</head>
+<body style="background-image: url(projectback.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed; text-align:center;">
+<h2 style="text-align: center;"><u>Meet The Team</u></h2>
+<br><br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="Naman.jpg" alt="Naman" style="width:100%">
+      <div class="container">
+        <h2>Naman Jain</h2>
+        <h3 class="title">Frontend and Backend Developer </h3>
+        <p><b>Student at VIT CHENNAI</b></p>
+        <p><b>jain.naman52@gmail.com</b></p>
+        <p><button class="button"><a href="https://www.linkedin.com/in/naman-jain-7a8453199/" target="_blank" style="color:white">LINKEDIN</a></button></p>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="column">
+      <div class="card">
+        <div class="container">
+        </div>
+      </div>
+</div>
+
+
+  <div class="column">
+    <div class="card">
+      <img src="Kshitiz.jpg" alt="Kshitiz" style="width:100%">
+      <div class="container">
+        <h2>Kshitiz Goyal</h2>
+        <h3 class="title">Frontend and Backend Developer</h3>
+        <p><b>Student at VIT CHENNAI</b></p>
+        <p><b>2000goyalk@gmail.com</b></p>
+        <form onsubmit="">
+        <p><button class="button"><a href="https://www.linkedin.com/in/kshitiz-goyal-398100165" target="_blank" style="color:white">LINKEDIN</a></button></p></form>
+      </div>
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <div class="container">
+        </div>
+      </div>
+</div>
+      
+<div class="column">
+    <div class="card">
+      <img src="Srijan.jpg" alt="Kshitiz" style="width:100%">
+      <div class="container">
+        <h2>Srijan Kumar Airon</h2>
+        <h3 class="title">Frontend and Backend Developer</h3>
+        <p><b>Student at VIT CHENNAI</b></p>
+        <p><b>srijanairon27@gmail.com</b></p>
+        <form onsubmit="">
+        <p><button class="button"><a href="https://www.linkedin.com/in/srijan-airon-68b830193" target="_blank" style="color:white">LINKEDIN</a></button></p></form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <title>Login Page</title>
+    <style>
+        .button {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        body, html {
+height: 100%;
+margin: 0;
+background-image: url(https://www.aapd.com/wp-content/uploads/2020/10/Voting-Illustration-1-White-Medium.png);
+height: 100%; 
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+text-align: center;
+}
+</style>
+<form action="loginservlet" method="GET">
+    <h1 style="text-align: center; color: white; background-color: black;" >Enter Login Credentials</h1>
+    <br>
+    <h3 style="text-align: center;">
+    <label for="name">Voter Id:</label>
+    <input type="text" id="name" name="name" required><br>
+    <br>
+    <label for="password">Password:</label>   
+    <input type="password" id="password" name="password" required><br>
+    <br><br>
+    <button type="submit" class="button">LOGIN</button>
+        </h3>
+        </form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2 style="text-align: center; color: white; background-color: black;" >The ballot is stronger than the bullet<br><i>-Abraham Lincoln</i></h2>
+</body>
+</html>

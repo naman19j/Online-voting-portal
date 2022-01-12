@@ -1,0 +1,343 @@
+<html>
+    <head>
+        <title>Registration Page</title>
+        <style>
+            body {background-image: url(projectback.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            }
+            .button {
+  border-radius: 4px;
+  background-color: lightblue;
+  border: none;
+  color: darkblue;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 123px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#video {
+        border: 1px solid white;
+        width: 320px;
+        height: 240px;
+    }
+
+    #photo {
+        border: 1px solid white;
+        width: 320px;
+        height: 240px;
+    }
+
+    #canvas {
+        display: none;
+    }
+
+    .camera {
+        width: 500px;
+        display: inline-block;
+    }
+
+    .output {
+        width: 500px;
+        display: inline-block;
+    }
+
+    #startbutton {
+        display: block;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 36px;
+        padding: 5px;
+        background-color: #6a67ce;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 1.0);
+        cursor: pointer;
+    }
+
+    .contentarea {
+        font-size: 16px;
+        font-family: Arial;
+        text-align: center;
+    }
+    .button {
+            background-color: black;
+            border: none;
+            color: wheat;
+            padding: 15px 32px;
+            text-align: center;
+            font-family: georgia;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <form style="text-align:center;color:black; font-weight: bold" name ="signup" action="regdservlet" method="post">
+            
+            <h1 style="text-align:center;color:black;background-color: springgreen"><b>Enter Registration Details</b></h1>
+            <br>
+            <label for="fname">First Name: </label><br>
+            <input type="text" id="fname" name="fname">
+            <br><br>
+            <label for="lname">Last Name: </label><br>
+            <input type="text" id="lname" name="lname">
+            <br><br>
+            <label for="gender">Gender: </label><br>
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+            <br><br>
+            <label for="dob">Date of Birth: </label><br>
+            <input type="date" id="dob" name="dob" max="2003-10-02">
+            <br><br>
+            <label for="phone">Phone Number: </label><br>
+            <input type="text" id="phone" name="phone">
+            <br><br>
+            <label for="email">E-Mail ID: </label><br>
+            <input type="text" id="email" name="email"> 
+            <br><br>
+            <label for="address">Address: </label><br>
+            <textarea id="address" name="address" rows="5" cols="25"></textarea>
+            <br><br>
+            <label for="aadhar">Aadhar Card No: </label><br>
+            <input type="text" id="aadhar" name="aadhar">
+            <br><br>
+            <label for="pass">Enter Password: </label><br>
+            <input type="password" id="pass" name="pass"> 
+            <br><br>
+            <label for="pass2">Re-Enter Password: </label><br>
+            <input type="password" id="pass2" name="pass2"> 
+            <br><br>
+            <div class="contentarea">
+        <h2><u>Human Verification</u></h2>
+        <h3>Instructions:</h3>
+        <h4>1. Click on 'Take Photo'</h4>
+        <h4>2. Right click on the clicked image and save it as profile.png file.</h4>
+        <h4>3. This image will be used as your Picture for Voter ID.</h4>
+        <div class="camera">
+            <video id="video">Video stream not available.</video>
+        </div>
+        <div><button id="startbutton">Take photo</button></div>
+        <canvas id="canvas"></canvas>
+        <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+        </div>
+            </div>
+            <br>
+            <button class="button" type="submit" onclick="return Validate()"><span>Register</span></button>
+        </form>
+    
+<script>
+        function Validate()
+{
+//Name validation
+let c =document.forms["signup"]["fname"].value;
+let d =document.forms["signup"]["lname"].value;
+var letters = /^[A-Za-z]+$/;
+if(!(c.match(letters)))
+{
+    alert("First Name should only be alphabet characters");
+    document.signup.fname.focus();
+    return false;
+}
+if(!(d.match(letters)))
+{
+    alert("Last Name should only be alphabet characters");
+    document.signup.lname.focus();
+    return false;
+}
+if (c=="") {
+    alert("First Name should not be Empty");
+    return false;
+  }
+  if (d == "") {
+    alert("Last Name should not be Empty");
+    return false;
+  }
+
+//Email Validation
+let x = document.forms["signup"]["email"].value;
+var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+if(!(x.match(mailformat)))
+{
+    alert("Invalid email address!");
+    return false;
+}
+if (x =="") {
+    alert("Email Should not be Empty");
+    return false;
+  }
+
+//Phone Number Validation
+let y= document.forms["signup"]["phone"].value;
+var phoneno = /^\d{10}$/;
+if(!(y.match(phoneno)))
+{
+    alert("Invalid Phone Number!");
+    document.signup.phone.focus();
+    return false;
+}
+if (y =="") {
+    alert("Phone Number Should not be Empty");
+    return false;
+  }
+//password validation
+let z = document.forms["signup"]["pass"].value;
+if(z.length<8)
+{
+    alert("Password Should not be less than 8 characters");
+    return false;
+}
+if (z == "") {
+    alert("Password Should not be Empty");
+    return false;
+  }
+//retype password validation
+let a =document.forms["signup"]["pass2"].value;
+if(z!=a)
+{
+    alert("Should be same as enter above!!!");
+    return false;
+}
+//username Validation
+let b=document.forms["signup"]["aadhar"].value;
+var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+if(!regexp.test(b))
+{
+    alert("Invalid Aadhar number!");
+    return false;
+}
+}
+    </script>
+    <script>
+    /* JS comes here */
+    (function() {
+
+        var width = 320; 
+        var height = 0; 
+
+        var streaming = false;
+
+        var video = null;
+        var canvas = null;
+        var photo = null;
+        var startbutton = null;
+
+        function startup() {
+            video = document.getElementById('video');
+            canvas = document.getElementById('canvas');
+            photo = document.getElementById('photo');
+            startbutton = document.getElementById('startbutton');
+
+            navigator.mediaDevices.getUserMedia({
+                    video: true,
+                    audio: false
+                })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(function(err) {
+                    console.log("An error occurred: " + err);
+                });
+
+            video.addEventListener('canplay', function(ev) {
+                if (!streaming) {
+                    height = video.videoHeight / (video.videoWidth / width);
+
+                    if (isNaN(height)) {
+                        height = width / (4 / 3);
+                    }
+
+                    video.setAttribute('width', width);
+                    video.setAttribute('height', height);
+                    canvas.setAttribute('width', width);
+                    canvas.setAttribute('height', height);
+                    streaming = true;
+                }
+            }, false);
+
+            startbutton.addEventListener('click', function(ev) {
+                takepicture();
+                ev.preventDefault();
+            }, false);
+
+            clearphoto();
+        }
+
+
+        function clearphoto() {
+            var context = canvas.getContext('2d');
+            context.fillStyle = "#AAA";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            var data = canvas.toDataURL('image/png');
+            photo.setAttribute('src', data);
+        }
+
+        function takepicture() {
+            var context = canvas.getContext('2d');
+            if (width && height) {
+                canvas.width = width;
+                canvas.height = height;
+                context.drawImage(video, 0, 0, width, height);
+
+                var data = canvas.toDataURL('image/png');
+                photo.setAttribute('src', data);
+            } else {
+                clearphoto();
+            }
+        }
+
+        window.addEventListener('load', startup, false);
+    })();
+    function putImage()
+{
+  var canvas1 = document.getElementById("canvasSignature");        
+  if (canvas1.getContext) {
+     var ctx = canvas1.getContext("2d");                
+     var myImage = canvas1.toDataURL("image/png");      
+       var imageElement = document.getElementById("MyPix");  
+  imageElement.src = myImage;  
+  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+  }
+
+}  
+
+    </script>
+    </body>
+</html>
