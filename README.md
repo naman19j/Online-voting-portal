@@ -1,0 +1,7 @@
+# Online-voting-portal
+Online Voting is a web-based voting system that will help you manage your elections easily and securely. This voting system can be used for casting votes during the elections held in colleges, etc. In this system the voter does not have to go to the polling booth to cast their vote. They can use their personal computer to cast their votes. There is a database which is maintained in which all the name of the voters with their complete information is stored. The System Administrator registers the voters by simply filling a registration form to register the voters. After registration, the voter is assigned a secret voter ID with which he/she can use to login to the system and cast his/her vote. If invalid/wrong details are submitted, then the person is not registered to vote.
+Many a times, the polling booth is far away from localities and thus, many people do not cast their vote. 
+
+Many other countries also face similar problems during the period of elections. Some of the problems involves votes rigging, inaccessible or insecure polling stations. 
+
+This online voting/ polling system seek to address above mentioned issues. The users, the citizens should feel free and safe while using this system. They should be given enough time to cast their vote. Aadhar card details will be considered as an identity proof to generate voting cards. This system will be completely secured and will be directly connected to the government’s database. 
